@@ -1,5 +1,7 @@
 # AI for Safer Roads: Safe System Speed Safety Screening
 
+**Start here:** [SUBMISSION_INDEX.md](SUBMISSION_INDEX.md)
+
 This repository contains a reproducible analytical model for identifying road
 segments where posted speed limits and observed speeds may be misaligned with
 Safe System principles, especially for vulnerable road users: pedestrians,
