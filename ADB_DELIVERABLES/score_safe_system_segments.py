@@ -198,12 +198,16 @@ def priority_class(score: int) -> str:
 def recommended_action(row: dict[str, Any]) -> str:
     if row["qa_points"] >= 5:
         return "Speed-limit inventory QA and field validation"
+    if row["limit_alignment_points"] >= 25 and row["operating_speed_points"] >= 17 and row["geometry_points"] >= 7:
+        return "Integrated speed-limit, design, and enforcement review"
+    if row["land_use"].upper() == "URBAN" and row["limit_alignment_points"] >= 25:
+        return "Urban high-speed corridor speed-limit review"
     if row["geometry_points"] >= 7 and row["operating_speed_points"] >= 9:
-        return "Road design and speed management review"
+        return "Curve/geometry speed-management review"
+    if row["operating_speed_points"] >= 13:
+        return "Enforcement or average-speed camera candidate"
     if row["limit_alignment_points"] >= 20:
         return "Posted speed-limit review against Safe System principles"
-    if row["operating_speed_points"] >= 13:
-        return "Enforcement or corridor speed management"
     return "Monitor and combine with crash/exposure data"
 
 

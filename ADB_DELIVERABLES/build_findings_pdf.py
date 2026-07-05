@@ -216,7 +216,7 @@ def build_html() -> str:
 
   <div class="page-break"></div>
   <h2>Policy-Relevant Outputs</h2>
-  <p>SaiFE does not only rank locations. It assigns action categories that a ministry can use for speed-limit review, road-design review, corridor speed management, enforcement planning, QA, or monitoring.</p>
+  <p>SaiFE does not only rank locations. It assigns action categories that a ministry can use for integrated review, urban corridor speed-limit review, curve or geometry review, enforcement planning, QA, or monitoring.</p>
   {charts[2]}
   {charts[3]}
 

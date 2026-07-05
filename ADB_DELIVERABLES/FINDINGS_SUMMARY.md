@@ -71,10 +71,16 @@ agency can use:
 
 - **Road design and speed management review:** where geometry and high operating
   speeds combine.
+- **Integrated speed-limit, design, and enforcement review:** where high posted
+  speeds, high operating speeds, and geometry concerns overlap.
+- **Urban high-speed corridor speed-limit review:** where urban roads have
+  posted speeds that need Safe System review.
+- **Curve/geometry speed-management review:** where road alignment and operating
+  speeds suggest engineering treatment may be needed.
 - **Posted speed-limit review against Safe System principles:** where the posted
   limit may be high for the road context.
-- **Enforcement or corridor speed management:** where operating speeds are well
-  above posted limits.
+- **Enforcement or average-speed camera candidate:** where operating speeds are
+  well above posted limits.
 - **Speed-limit inventory QA and field validation:** where the data suggest a
   possible coding, map-matching, or local-context issue.
 - **Monitor and combine with crash/exposure data:** where the speed signal is

@@ -294,7 +294,7 @@ def build_html() -> str:
   <div class="page-break"></div>
   <h2>How a Ministry Could Use SaiFE</h2>
   <p>A transport ministry or road safety agency could use SaiFE as a first-stage screening tool for speed management. It can inform national speed-limit review, corridor enforcement planning, average-speed camera pilots, road-design review, field validation, speed-limit inventory QA, and crash-data matching.</p>
-  <p>The model is designed to support decisions about where to investigate first, not to make automatic final policy decisions. Each priority segment receives a recommended action so agencies can distinguish speed-limit review, road-design and speed-management review, enforcement, QA, and monitoring cases.</p>
+  <p>The model is designed to support decisions about where to investigate first, not to make automatic final policy decisions. Each priority segment receives a recommended action so agencies can distinguish integrated review, urban corridor speed-limit review, curve or geometry review, enforcement, QA, and monitoring cases.</p>
   {horizontal_bar_chart(action_counts.most_common(8), "Recommended action categories for priority segments", "#7c3aed")}
 
   <h2>Temporal / Dynamic Speed Management</h2>
