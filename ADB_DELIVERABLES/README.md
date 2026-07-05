@@ -46,8 +46,11 @@ Running the scoring script writes:
 - `ADB_DELIVERABLES/outputs/safe_system_scoring_summary.md`
 
 Open `safe_system_priority_map.html` in a browser to inspect the highest-scoring
-segments. If this repository is published with GitHub Pages or GitLab Pages, the
-same file can be used as the interactive map URL.
+segments. The deployed GitHub Pages map is:
+
+```text
+https://tan-amos.github.io/adb-ai-for-safer-roads/
+```
 
 ## Score Interpretation
 

@@ -50,14 +50,21 @@ cyclist, motorcycle, enforcement, and field-audit data.
 
 ## Interactive Map
 
-Open this file in a browser:
+Public map URL:
+
+```text
+https://tan-amos.github.io/adb-ai-for-safer-roads/
+```
+
+Repository file:
 
 ```text
 ADB_DELIVERABLES/outputs/safe_system_priority_map.html
 ```
 
-If GitHub Pages is enabled for this repository, that same HTML file can become
-the public map URL required by the submission.
+The public map is served from the lightweight `docs/` folder so GitHub Pages can
+publish quickly while the full analytical data and outputs remain in the
+repository.
 
 ## Time-Based and AI-Assisted Speed Management
 
