@@ -79,6 +79,7 @@ where a transport agency should investigate first.
 
 - `score_safe_system_segments.py`: reproducible segment scoring and map builder.
 - `SAFE_SYSTEM_METHODOLOGY.md`: score formula, assumptions, and evaluation plan.
+- `FINDINGS_SUMMARY.md`: summary of model findings and policy use cases.
 - `TEMPORAL_DATA_AUDIT.md`: full schema audit showing that the current GeoJSON
   files do not contain timestamp, hour, or day/night fields.
 - `ADB_road_speed_policy_proposal.md`: policy narrative for Thailand and
