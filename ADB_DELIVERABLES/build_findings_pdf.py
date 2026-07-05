@@ -296,6 +296,8 @@ def main() -> None:
             "--headless",
             "--disable-gpu",
             "--no-sandbox",
+            "--no-pdf-header-footer",
+            "--print-to-pdf-no-header",
             f"--print-to-pdf={PDF_OUTPUT}",
             f"file://{HTML_OUTPUT}",
         ],
