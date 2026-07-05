@@ -45,6 +45,17 @@ Running the scoring script writes:
 - `ADB_DELIVERABLES/outputs/safe_system_priority_map.html`
 - `ADB_DELIVERABLES/outputs/safe_system_scoring_summary.md`
 
+To select first-wave candidates for future time-of-day or dynamic speed
+management pilots:
+
+```bash
+python3 ADB_DELIVERABLES/select_time_based_pilot_candidates.py
+```
+
+This writes:
+
+- `ADB_DELIVERABLES/outputs/time_based_speed_management_candidates.csv`
+
 Open `safe_system_priority_map.html` in a browser to inspect the highest-scoring
 segments. The deployed GitHub Pages map is:
 
@@ -68,6 +79,8 @@ where a transport agency should investigate first.
 
 - `score_safe_system_segments.py`: reproducible segment scoring and map builder.
 - `SAFE_SYSTEM_METHODOLOGY.md`: score formula, assumptions, and evaluation plan.
+- `TEMPORAL_DATA_AUDIT.md`: full schema audit showing that the current GeoJSON
+  files do not contain timestamp, hour, or day/night fields.
 - `ADB_road_speed_policy_proposal.md`: policy narrative for Thailand and
   Maharashtra.
 - `ADB_road_speed_policy_proposal_interactive.html`: existing interactive

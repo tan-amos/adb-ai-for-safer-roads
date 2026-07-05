@@ -19,6 +19,7 @@ road segment in the supplied Thailand and Maharashtra GeoJSON datasets.
 | Geospatial visualization | `ADB_DELIVERABLES/outputs/safe_system_priority_map.html` |
 | Priority segment GeoJSON | `ADB_DELIVERABLES/outputs/safe_system_priority_segments.geojson` |
 | Rubric alignment | `ADB_DELIVERABLES/RUBRIC_ALIGNMENT.md` |
+| Time-based speed management candidates | `ADB_DELIVERABLES/outputs/time_based_speed_management_candidates.csv` |
 
 ## Run the Model
 
@@ -73,8 +74,27 @@ timestamp, day/night, weather, or lighting fields. The methodology therefore
 documents time-of-day scoring as an extension rather than making unsupported
 claims from unavailable data.
 
-The recommended next step is to add segment-hour speed profiles and calculate
-daytime versus night-time F85 speed, percent-over-limit, and speeding deltas.
-Those features can support AI-assisted decision support for variable speed
-limits, targeted enforcement, school-zone windows, and night-time motorcycle
-safety programs.
+The repo includes a full temporal data audit:
+
+```text
+ADB_DELIVERABLES/TEMPORAL_DATA_AUDIT.md
+```
+
+It also includes a current-data candidate list for where time-based or dynamic
+speed-management pilots should be tested first:
+
+```bash
+python3 ADB_DELIVERABLES/select_time_based_pilot_candidates.py
+```
+
+Output:
+
+```text
+ADB_DELIVERABLES/outputs/time_based_speed_management_candidates.csv
+```
+
+The recommended next data step is to add segment-hour speed profiles and
+calculate daytime versus night-time F85 speed, percent-over-limit, and speeding
+deltas. Those features can support AI-assisted decision support for variable
+speed limits, targeted enforcement, school-zone windows, and night-time
+motorcycle safety programs.
