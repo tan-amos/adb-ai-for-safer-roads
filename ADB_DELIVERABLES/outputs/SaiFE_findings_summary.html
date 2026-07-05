@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>SaiFE Findings Summary</title>
+  <style>
+    @page { size: A4; margin: 16mm; }
+    body { font-family: Arial, sans-serif; color: #172033; line-height: 1.42; }
+    h1 { font-size: 25px; margin: 0 0 4px; }
+    h2 { font-size: 17px; margin: 22px 0 8px; border-bottom: 1px solid #d1d5db; padding-bottom: 4px; }
+    h3 { font-size: 14px; margin: 14px 0 6px; }
+    p, li { font-size: 11px; }
+    .subtitle { color: #475569; margin-top: 0; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 14px 0; }
+    .metric { border: 1px solid #cbd5e1; padding: 9px; border-radius: 4px; }
+    .metric strong { display: block; font-size: 19px; }
+    .metric span { font-size: 10px; color: #475569; }
+    svg { width: 100%; height: auto; margin: 6px 0 12px; }
+    .chart-title { font-weight: 700; font-size: 16px; fill: #172033; }
+    .axis, .legend { font-size: 11px; fill: #475569; }
+    .axis-label { font-size: 11px; fill: #172033; }
+    table { border-collapse: collapse; width: 100%; margin: 8px 0 12px; font-size: 9.5px; }
+    th, td { border: 1px solid #cbd5e1; padding: 4px 5px; vertical-align: top; }
+    th { background: #f1f5f9; text-align: left; }
+    .page-break { break-before: page; }
+    .note { background: #f8fafc; border-left: 4px solid #64748b; padding: 8px 10px; }
+  </style>
+</head>
+<body>
+  <h1>SaiFE Findings Summary</h1>
+  <p class="subtitle">Safe AI Framework for Speed-Limit Evaluation</p>
+
+  <div class="metric-grid">
+    <div class="metric"><strong>14,711</strong><span>usable segments scored</span></div>
+    <div class="metric"><strong>6,729</strong><span>priority segments scoring 50+</span></div>
+    <div class="metric"><strong>131</strong><span>critical-review segments</span></div>
+    <div class="metric"><strong>250</strong><span>time-based pilot candidates</span></div>
+  </div>
+
+  <h2>What Problem SaiFE Solves</h2>
+  <p>SaiFE helps transport agencies identify road segments where posted speed limits, actual operating speeds, road context, and geometry may create elevated safety concerns, especially for pedestrians, cyclists, and powered two-wheeler users. It is a transparent screening tool for deciding where governments should investigate first.</p>
+
+  <h2>Method in Brief</h2>
+  <p>The model uses the supplied Thailand and Maharashtra GeoJSON datasets. Each valid segment receives a 0-100 Speed Safety Score from six components: posted limit alignment, operating speed behavior, exposure proxy, vulnerable-user context, geometry, and data-quality review. Segments scoring 50 or above are treated as priority speed-unsafe segments for review.</p>
+
+  <h2>Core Findings</h2>
+  <p>Thailand produced 131 Critical-review segments and 6,114 High-priority segments. Maharashtra produced 484 High-priority segments. The strongest signals occur where high observed speeds combine with urban or major-road context, geometry concerns, and exposure proxies.</p>
+
+  <svg viewBox="0 0 860 360" role="img" aria-label="Priority classes by country">
+<text x="80" y="28" class="chart-title">Priority classes by country</text>
+<line x1="80" y1="290" x2="830" y2="290" stroke="#94a3b8"/>
+<line x1="80" y1="54" x2="80" y2="290" stroke="#94a3b8"/>
+<line x1="80" y1="290.0" x2="830" y2="290.0" stroke="#e2e8f0"/>
+<text x="72" y="294.0" text-anchor="end" class="axis">0</text>
+<line x1="80" y1="231.0" x2="830" y2="231.0" stroke="#e2e8f0"/>
+<text x="72" y="235.0" text-anchor="end" class="axis">1,528</text>
+<line x1="80" y1="172.0" x2="830" y2="172.0" stroke="#e2e8f0"/>
+<text x="72" y="176.0" text-anchor="end" class="axis">3,057</text>
+<line x1="80" y1="113.0" x2="830" y2="113.0" stroke="#e2e8f0"/>
+<text x="72" y="117.0" text-anchor="end" class="axis">4,586</text>
+<line x1="80" y1="54.0" x2="830" y2="54.0" stroke="#e2e8f0"/>
+<text x="72" y="58.0" text-anchor="end" class="axis">6,114</text>
+<rect x="117.5" y="284.9" width="58.5" height="5.1" fill="#7f1d1d"><title>Thailand Critical review: 131</title></rect>
+<rect x="192.5" y="54.0" width="58.5" height="236.0" fill="#dc2626"><title>Thailand High priority: 6,114</title></rect>
+<rect x="267.5" y="101.7" width="58.5" height="188.3" fill="#f59e0b"><title>Thailand Monitor / validate: 4,877</title></rect>
+<rect x="342.5" y="289.5" width="58.5" height="0.5" fill="#16a34a"><title>Thailand Lower priority: 12</title></rect>
+<text x="267.5" y="332" text-anchor="middle" class="axis-label">Thailand</text>
+<rect x="492.5" y="290.0" width="58.5" height="0.0" fill="#7f1d1d"><title>Maharashtra Critical review: 0</title></rect>
+<rect x="567.5" y="271.3" width="58.5" height="18.7" fill="#dc2626"><title>Maharashtra High priority: 484</title></rect>
+<rect x="642.5" y="181.9" width="58.5" height="108.1" fill="#f59e0b"><title>Maharashtra Monitor / validate: 2,800</title></rect>
+<rect x="717.5" y="278.7" width="58.5" height="11.3" fill="#16a34a"><title>Maharashtra Lower priority: 293</title></rect>
+<text x="642.5" y="332" text-anchor="middle" class="axis-label">Maharashtra</text>
+<rect x="80" y="342" width="11" height="11" fill="#7f1d1d"/>
+<text x="96" y="352" class="legend">Critical review</text>
+<rect x="235" y="342" width="11" height="11" fill="#dc2626"/>
+<text x="251" y="352" class="legend">High priority</text>
+<rect x="390" y="342" width="11" height="11" fill="#f59e0b"/>
+<text x="406" y="352" class="legend">Monitor / validate</text>
+<rect x="545" y="342" width="11" height="11" fill="#16a34a"/>
+<text x="561" y="352" class="legend">Lower priority</text>
+</svg>
+  <svg viewBox="0 0 860 204" role="img" aria-label="Segments by Speed Safety Score band">
+<text x="0" y="28" class="chart-title">Segments by Speed Safety Score band</text>
+<text x="250" y="69" text-anchor="end" class="axis-label">75-100</text>
+<rect x="260" y="52" width="9.3" height="20" fill="#0891b2"/>
+<text x="277.3" y="67" class="axis">131</text>
+<text x="250" y="99" text-anchor="end" class="axis-label">50-74</text>
+<rect x="260" y="82" width="467.5" height="20" fill="#0891b2"/>
+<text x="735.5" y="97" class="axis">6,598</text>
+<text x="250" y="129" text-anchor="end" class="axis-label">25-49</text>
+<rect x="260" y="112" width="544.0" height="20" fill="#0891b2"/>
+<text x="812.0" y="127" class="axis">7,677</text>
+<text x="250" y="159" text-anchor="end" class="axis-label">0-24</text>
+<rect x="260" y="142" width="21.6" height="20" fill="#0891b2"/>
+<text x="289.6" y="157" class="axis">305</text>
+</svg>
+
+  <div class="page-break"></div>
+  <h2>Policy-Relevant Outputs</h2>
+  <p>SaiFE does not only rank locations. It assigns action categories that a ministry can use for speed-limit review, road-design review, corridor speed management, enforcement planning, QA, or monitoring.</p>
+  <svg viewBox="0 0 860 234" role="img" aria-label="Recommended action categories for priority segments">
+<text x="0" y="28" class="chart-title">Recommended action categories for priority segments</text>
+<text x="250" y="69" text-anchor="end" class="axis-label">Posted speed-limit review against Safe Sys</text>
+<rect x="260" y="52" width="544.0" height="20" fill="#7c3aed"/>
+<text x="812.0" y="67" class="axis">5,445</text>
+<text x="250" y="99" text-anchor="end" class="axis-label">Road design and speed management review</text>
+<rect x="260" y="82" width="110.9" height="20" fill="#7c3aed"/>
+<text x="378.9" y="97" class="axis">1,110</text>
+<text x="250" y="129" text-anchor="end" class="axis-label">Enforcement or corridor speed management</text>
+<rect x="260" y="112" width="14.4" height="20" fill="#7c3aed"/>
+<text x="282.4" y="127" class="axis">144</text>
+<text x="250" y="159" text-anchor="end" class="axis-label">Speed-limit inventory QA and field validat</text>
+<rect x="260" y="142" width="2.6" height="20" fill="#7c3aed"/>
+<text x="270.6" y="157" class="axis">26</text>
+<text x="250" y="189" text-anchor="end" class="axis-label">Monitor and combine with crash/exposure da</text>
+<rect x="260" y="172" width="0.4" height="20" fill="#7c3aed"/>
+<text x="268.4" y="187" class="axis">4</text>
+</svg>
+  <svg viewBox="0 0 860 384" role="img" aria-label="Top scored segments">
+<text x="0" y="28" class="chart-title">Top scored segments</text>
+<text x="250" y="69" text-anchor="end" class="axis-label">Thailand - Prachim Ratthaya Expressway</text>
+<rect x="260" y="52" width="544.0" height="20" fill="#dc2626"/>
+<text x="812.0" y="67" class="axis">88</text>
+<text x="250" y="99" text-anchor="end" class="axis-label">Thailand - Prachim Ratthaya Expressway</text>
+<rect x="260" y="82" width="531.6" height="20" fill="#dc2626"/>
+<text x="799.6" y="97" class="axis">86</text>
+<text x="250" y="129" text-anchor="end" class="axis-label">Thailand - Super Highway</text>
+<rect x="260" y="112" width="525.5" height="20" fill="#dc2626"/>
+<text x="793.5" y="127" class="axis">85</text>
+<text x="250" y="159" text-anchor="end" class="axis-label">Thailand - Chalong Rat Expressway</text>
+<rect x="260" y="142" width="525.5" height="20" fill="#dc2626"/>
+<text x="793.5" y="157" class="axis">85</text>
+<text x="250" y="189" text-anchor="end" class="axis-label">Thailand - Chalong Rat Expressway</text>
+<rect x="260" y="172" width="525.5" height="20" fill="#dc2626"/>
+<text x="793.5" y="187" class="axis">85</text>
+<text x="250" y="219" text-anchor="end" class="axis-label">Thailand - Borommaratchachonnani Elevated </text>
+<rect x="260" y="202" width="525.5" height="20" fill="#dc2626"/>
+<text x="793.5" y="217" class="axis">85</text>
+<text x="250" y="249" text-anchor="end" class="axis-label">Thailand -  </text>
+<rect x="260" y="232" width="513.1" height="20" fill="#dc2626"/>
+<text x="781.1" y="247" class="axis">83</text>
+<text x="250" y="279" text-anchor="end" class="axis-label">Thailand - Phetkasem Road</text>
+<rect x="260" y="262" width="513.1" height="20" fill="#dc2626"/>
+<text x="781.1" y="277" class="axis">83</text>
+<text x="250" y="309" text-anchor="end" class="axis-label">Thailand - Phahonyothin Road</text>
+<rect x="260" y="292" width="513.1" height="20" fill="#dc2626"/>
+<text x="781.1" y="307" class="axis">83</text>
+<text x="250" y="339" text-anchor="end" class="axis-label">Thailand - Sukhumvit Road</text>
+<rect x="260" y="322" width="506.9" height="20" fill="#dc2626"/>
+<text x="774.9" y="337" class="axis">82</text>
+</svg>
+
+  <h3>Top Scored Segments</h3>
+  <table><thead><tr><th>Country</th><th>Road</th><th>Class</th><th>Land use</th><th>Limit</th><th>F85</th><th>Score</th><th>Recommended action</th></tr></thead><tbody><tr><td>Thailand</td><td>Prachim Ratthaya Expressway</td><td>motorway</td><td>URBAN</td><td>80.0</td><td>114.5</td><td>88</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Prachim Ratthaya Expressway</td><td>motorway</td><td>URBAN</td><td>80.0</td><td>114.83333333</td><td>86</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Super Highway</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>95.5</td><td>85</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Chalong Rat Expressway</td><td>motorway</td><td>URBAN</td><td>80.0</td><td>108.66666666</td><td>85</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Chalong Rat Expressway</td><td>motorway</td><td>URBAN</td><td>80.0</td><td>107.11111111</td><td>85</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Borommaratchachonnani Elevated Highway</td><td>primary</td><td>URBAN</td><td>80.0</td><td>99.85714285</td><td>85</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td> </td><td>trunk</td><td>URBAN</td><td>90.0</td><td>113.33333333</td><td>83</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Phetkasem Road</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>97.2</td><td>83</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Phahonyothin Road</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>108.0</td><td>83</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Sukhumvit Road</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>95.0</td><td>82</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Yantarakit Koson Road</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>103.0</td><td>82</td><td>Road design and speed management review</td></tr><tr><td>Thailand</td><td>Phet Kasem Road</td><td>trunk</td><td>URBAN</td><td>80.0</td><td>91.5</td><td>82</td><td>Road design and speed management review</td></tr></tbody></table>
+
+  <div class="page-break"></div>
+  <h2>Time-Based Speed Management</h2>
+  <p>The provided GeoJSON files do not contain timestamp, hour, or day/night fields, so SaiFE does not claim to prove day/night speeding patterns. Instead, it identifies where segment-hour data should be collected first for variable speed limits, night enforcement, school-zone windows, or dynamic speed-management pilots.</p>
+  <svg viewBox="0 0 860 204" role="img" aria-label="Time-based pilot candidate types">
+<text x="0" y="28" class="chart-title">Time-based pilot candidate types</text>
+<text x="250" y="69" text-anchor="end" class="axis-label">Urban time-window speed management</text>
+<rect x="260" y="52" width="544.0" height="20" fill="#0f766e"/>
+<text x="812.0" y="67" class="axis">146</text>
+<text x="250" y="99" text-anchor="end" class="axis-label">Night enforcement or average-speed pilot</text>
+<rect x="260" y="82" width="219.8" height="20" fill="#0f766e"/>
+<text x="487.8" y="97" class="axis">59</text>
+<text x="250" y="129" text-anchor="end" class="axis-label">Night/low-visibility curve speed managemen</text>
+<rect x="260" y="112" width="145.3" height="20" fill="#0f766e"/>
+<text x="413.3" y="127" class="axis">39</text>
+<text x="250" y="159" text-anchor="end" class="axis-label">Variable speed limit feasibility review</text>
+<rect x="260" y="142" width="22.4" height="20" fill="#0f766e"/>
+<text x="290.4" y="157" class="axis">6</text>
+</svg>
+
+  <h3>First-Wave Time-Based Pilot Candidates</h3>
+  <table><thead><tr><th>Country</th><th>Road</th><th>Class</th><th>Score</th><th>Pilot type</th><th>Pilot score</th></tr></thead><tbody><tr><td>Thailand</td><td>Prachim Ratthaya Expressway</td><td>motorway</td><td>88</td><td>Night/low-visibility curve speed management</td><td>116.59</td></tr><tr><td>Thailand</td><td>Prachim Ratthaya Expressway</td><td>motorway</td><td>86</td><td>Night/low-visibility curve speed management</td><td>114.55</td></tr><tr><td>Thailand</td><td>Chalong Rat Expressway</td><td>motorway</td><td>85</td><td>Night/low-visibility curve speed management</td><td>111.48</td></tr><tr><td>Thailand</td><td>Chalong Rat Expressway</td><td>motorway</td><td>85</td><td>Night/low-visibility curve speed management</td><td>110.41</td></tr><tr><td>Thailand</td><td>Udon Ratthaya Expressway</td><td>motorway</td><td>79</td><td>Night enforcement or average-speed pilot</td><td>107.54</td></tr><tr><td>Thailand</td><td>Borommaratchachonnani Elevated Highway</td><td>primary</td><td>85</td><td>Urban time-window speed management</td><td>106.43</td></tr><tr><td>Thailand</td><td>Buraphawithi Expressway</td><td>motorway</td><td>79</td><td>Night enforcement or average-speed pilot</td><td>106.25</td></tr><tr><td>Thailand</td><td>Phahonyothin Road</td><td>trunk</td><td>83</td><td>Urban time-window speed management</td><td>104.85</td></tr></tbody></table>
+
+  <h2>How a Ministry Could Use This</h2>
+  <ul>
+    <li>Prioritize corridors for speed-limit review and Safe System alignment checks.</li>
+    <li>Select locations for average-speed enforcement, fixed cameras, or speed feedback signs.</li>
+    <li>Identify curved or high-speed roads where engineering treatment may be needed.</li>
+    <li>Target field validation and speed-limit inventory QA.</li>
+    <li>Choose first-wave corridors for segment-hour day/night speed analysis.</li>
+  </ul>
+
+  <h2>Validation and Limitations</h2>
+  <p class="note">SaiFE is a screening and prioritization model, not a final crash-prediction model. The supplied data does not include crash outcomes, traffic volumes, vulnerable-user exposure, or time-of-day speed records. Final investment decisions should join the score with crash data, traffic counts, field audits, and local engineering review.</p>
+
+  <h2>Replication</h2>
+  <p>The method can be replicated in other countries using common road data: segment geometry, posted speed limit, road class, land use, observed speed statistics, and sample count. Countries with less data can start with posted limits, geometry, road class, and urban/rural context, then add speed observations and crash data as they become available.</p>
+
+  <p><strong>Repository:</strong> https://github.com/tan-amos/adb-ai-for-safer-roads<br>
+  <strong>Interactive map:</strong> https://tan-amos.github.io/adb-ai-for-safer-roads/</p>
+</body>
+</html>

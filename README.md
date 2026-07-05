@@ -17,6 +17,7 @@ road segment in the supplied Thailand and Maharashtra GeoJSON datasets.
 | Speed Safety Score for each segment | `ADB_DELIVERABLES/outputs/safe_system_segment_scores.csv` |
 | Transparent score calculation | `ADB_DELIVERABLES/SAFE_SYSTEM_METHODOLOGY.md` |
 | Findings summary | `ADB_DELIVERABLES/FINDINGS_SUMMARY.md` |
+| Attachment-ready findings PDF | `ADB_DELIVERABLES/outputs/SaiFE_findings_summary.pdf` |
 | Geospatial visualization | `ADB_DELIVERABLES/outputs/safe_system_priority_map.html` |
 | Priority segment GeoJSON | `ADB_DELIVERABLES/outputs/safe_system_priority_segments.geojson` |
 | Rubric alignment | `ADB_DELIVERABLES/RUBRIC_ALIGNMENT.md` |

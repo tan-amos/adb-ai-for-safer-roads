@@ -56,6 +56,17 @@ This writes:
 
 - `ADB_DELIVERABLES/outputs/time_based_speed_management_candidates.csv`
 
+To build the attachment-ready findings PDF with static charts:
+
+```bash
+python3 ADB_DELIVERABLES/build_findings_pdf.py
+```
+
+This writes:
+
+- `ADB_DELIVERABLES/outputs/SaiFE_findings_summary.pdf`
+- `ADB_DELIVERABLES/outputs/SaiFE_findings_summary.html`
+
 Open `safe_system_priority_map.html` in a browser to inspect the highest-scoring
 segments. The deployed GitHub Pages map is:
 
@@ -78,6 +89,7 @@ where a transport agency should investigate first.
 ## Key Files
 
 - `score_safe_system_segments.py`: reproducible segment scoring and map builder.
+- `build_findings_pdf.py`: builds a 4-page PDF summary with static charts.
 - `SAFE_SYSTEM_METHODOLOGY.md`: score formula, assumptions, and evaluation plan.
 - `FINDINGS_SUMMARY.md`: summary of model findings and policy use cases.
 - `TEMPORAL_DATA_AUDIT.md`: full schema audit showing that the current GeoJSON
